@@ -85,10 +85,10 @@ export default function ShowcaseSection() {
   return (
     <section ref={containerRef} className="relative w-full h-screen bg-[#fdfbf7] dark:bg-[#050505] overflow-hidden">
       {PRODUCTS.map((product, idx) => (
-        <div key={product.id} className="absolute inset-0 flex w-full h-full">
+        <div key={product.id} className="absolute inset-0 flex flex-col md:flex-row w-full h-full">
           
           {/* Left Side: Product Image */}
-          <div className={`prod-img-${idx} w-1/2 h-full flex items-center justify-center p-12 opacity-0 pointer-events-none`}>
+          <div className={`prod-img-${idx} w-full md:w-1/2 h-1/2 md:h-full flex items-center justify-center p-6 md:p-12 pt-20 md:pt-12 opacity-0 pointer-events-none`}>
             <div className="relative w-full h-[80%] flex items-center justify-center drop-shadow-[0_20px_50px_rgba(255,255,255,0.05)]">
               <img 
                 src={product.img} 
@@ -99,23 +99,23 @@ export default function ShowcaseSection() {
           </div>
 
           {/* Right Side: Product Details */}
-          <div className={`prod-detail-${idx} w-1/2 h-full flex flex-col justify-center px-16 lg:px-24 opacity-0 pointer-events-none`}>
+          <div className={`prod-detail-${idx} w-full md:w-1/2 h-1/2 md:h-full flex flex-col justify-start md:justify-center px-6 md:px-16 lg:px-24 opacity-0 pointer-events-none`}>
             <div className="max-w-md pointer-events-auto">
-              <p className="text-sm tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-4">0{idx + 1} // Signature Series</p>
-              <h2 className="text-5xl lg:text-7xl font-serif mb-6 leading-none text-black dark:text-white">{product.title}</h2>
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 font-light leading-relaxed">{product.desc}</p>
+              <p className="text-xs md:text-sm tracking-[0.2em] uppercase text-gray-500 dark:text-gray-400 mb-2 md:mb-4">0{idx + 1} // Signature Series</p>
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif mb-4 md:mb-6 leading-none text-black dark:text-white">{product.title}</h2>
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6 md:mb-8 font-light leading-relaxed">{product.desc}</p>
               
-              <div className="flex gap-4 mb-10">
+              <div className="flex gap-3 md:gap-4 mb-6 md:mb-10">
                 {['WG', 'YG', 'RG', 'PT'].map(size => (
-                  <button key={size} className="w-12 h-12 rounded-full border border-gray-300 dark:border-gray-800 flex items-center justify-center text-sm transition-colors hover:bg-black dark:bg-white hover:text-white dark:text-black hover:border-black dark:hover:border-white font-medium">
+                  <button key={size} className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-gray-300 dark:border-gray-800 flex items-center justify-center text-xs md:text-sm transition-colors hover:bg-black dark:bg-white hover:text-white dark:text-black hover:border-black dark:hover:border-white font-medium">
                     {size}
                   </button>
                 ))}
               </div>
 
-              <div className="flex items-center gap-8">
-                <span className="text-3xl font-light">{product.price}</span>
-                <button className="px-8 py-4 bg-black dark:bg-white text-white dark:text-black text-sm uppercase tracking-widest font-semibold hover:bg-gray-200 transition-colors duration-300">
+              <div className="flex items-center gap-6 md:gap-8">
+                <span className="text-2xl md:text-3xl font-light">{product.price}</span>
+                <button className="px-6 py-3 md:px-8 md:py-4 bg-black dark:bg-white text-white dark:text-black text-xs md:text-sm uppercase tracking-widest font-semibold hover:bg-gray-200 transition-colors duration-300">
                   Add to Cart
                 </button>
               </div>
